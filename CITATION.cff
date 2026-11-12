@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this code or the derived tables, please cite the paper."
+title: "Morpheme Segmentation Data for Uzbek: processing algorithm and statistics"
+type: software
+authors:
+  - family-names: Khabibillayev
+    given-names: Nodirbek
+    orcid: "https://orcid.org/0009-0006-6056-5830"
+  - family-names: Rahmanova
+    given-names: Gulchehra
+    orcid: "https://orcid.org/0000-0002-7388-3364"
+  - family-names: Kholova
+    given-names: Muyassar
+    orcid: "https://orcid.org/0000-0002-7604-2958"
+  - family-names: Khabibillayeva
+    given-names: Gulasal
+    orcid: "https://orcid.org/0009-0003-2441-649X"
+  - family-names: Ibragimova
+    given-names: Umida
+preferred-citation:
+  type: conference-paper
+  title: "Morpheme Segmentation Data for Uzbek: A Reproducible Processing Algorithm and Statistical Validation of Segmentation Consistency"
+  conference:
+    name: "MIP: Computing-V 2026"
+  year: 2026
+  authors:
+    - family-names: Khabibillayev
+      given-names: Nodirbek
+    - family-names: Rahmanova
+      given-names: Gulchehra
+    - family-names: Kholova
+      given-names: Muyassar
+    - family-names: Khabibillayeva
+      given-names: Gulasal
+    - family-names: Ibragimova
+      given-names: Umida
