@@ -20,8 +20,8 @@ the text.
 | `pipeline.py` | Algorithm 1, the measures of Sect. 2.3, the statistical tests, the output tables and Fig. 1 |
 | `stats_from_table3.py` | Recomputes the chi-square and Fisher tests of Table 3 from the published counts alone, without the data |
 | `tests/sample_base.json`, `tests/sample_affixes.json` | A small synthetic sample in the input format, for a smoke test |
-| `data/` | Input arrays exported from the electronic edition (see `data/README.md`) |
-| `output/` | Derived tables written by the pipeline (`entries.csv`, `segments.csv`, `notes.csv`, `index.csv`, `results.json`, `results.md`) |
+| `data/` | The two arrays of the electronic edition, exported from its HTML on 12 November 2026 (`base.json`, 43,706 items; `affixes.json`, 590 rows) |
+| `output/` | Derived tables written by the pipeline (`entries.csv`, `segments.csv`, `notes.csv`, `index.csv`, `results.json`, `results.md`) and `fig1.png` |
 
 ## Input format
 
@@ -50,6 +50,18 @@ runs on the synthetic sample:
 python pipeline.py tests/sample_base.json tests/sample_affixes.json --out /tmp/smoke
 ```
 
+## Reproduction
+
+`output/results.md` in this repository is the output of the command above on
+the arrays in `data/`. It reproduces every value of Tables 1-3, Fig. 1 and
+Sect. 3.4 of the paper: 43,706 entries and 43,612 distinct strings; 125,935
+minimal segments; 3,489 prefixed entries; 11,496 roots; 330 affix forms with
+68,464 tokens (89.42%); the power-law slope -1.45 (R2 = 0.99); 6,318 suffix
+chains, 240 of them variable (26.1% of suffixed components); the five rows of
+the stem-attestation test with their chi-square and Fisher tests; 216
+headwords inside other entries (183 of 215 in agreement); 32,740 latent
+strings, 12,705 of 12,831 unanimous.
+
 ## What the pipeline computes
 
 * Table 1: entries, distinct word strings, homographs, duplicates, notes,
@@ -73,9 +85,9 @@ python pipeline.py tests/sample_base.json tests/sample_affixes.json --out /tmp/s
   U+2019 elsewhere; no other character is changed.
 * Parentheses are removed, hyphens separate components, slashes separate
   minimal segments.
-* A component whose first segment is a prefix form of the appendix and has
-  more than one segment is read as prefix + root; otherwise the first segment
-  is the root.
+* Leading segments that are prefix forms of the appendix are labeled prefixes
+  as long as at least one segment remains (a component may open with two
+  prefixes); the first remaining segment is the root.
 * Post-root segments are labeled in this order of precedence: affix (a variant
   string of the appendix), noted allomorph (a surface segment that differs from
   an affix in an aligned underlying-form note), compound constituent (a
@@ -84,6 +96,14 @@ python pipeline.py tests/sample_base.json tests/sample_affixes.json --out /tmp/s
   otherwise a comment.
 * The prefix index maps every proper initial portion of a component to its
   boundary pattern and the identifier of its entry.
+* In the stem-attestation test a pair such as la/n against lan is counted
+  where it opens the suffix chain; the intermediate stem is the root followed
+  by the first piece (a listed prefix is not part of it), and it counts as
+  attested when it is a headword or an initial portion of another entry,
+  the entry under test excluded. Counts for the pair at any position are kept
+  in `results.json` under `pairs_at_any_position`.
+* The appendix row `-i, (-si)` carries a stray comma; the parser strips it, so
+  `i` is read as an affix variant.
 
 ## License
 

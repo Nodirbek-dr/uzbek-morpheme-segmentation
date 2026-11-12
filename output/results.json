@@ -1,0 +1,420 @@
+{
+ "table1": {
+  "entries": 43706,
+  "distinct_word_strings": 43612,
+  "homograph_strings": 90,
+  "homograph_entries": 184,
+  "homographs_with_different_segmentation": 88,
+  "exact_duplicate_entries": 5,
+  "entries_with_note": 2249,
+  "underlying_form_notes": 2009,
+  "comment_notes": 240,
+  "hyphenated_entries": 2042,
+  "entries_with_parentheses": 141,
+  "minimal_segments_total": 125935,
+  "segments_per_entry_mean": 2.881412163089736,
+  "segments_per_entry_median": 3,
+  "segments_per_entry_max": 8,
+  "segments_histogram": {
+   "1": 361,
+   "2": 17453,
+   "3": 15359,
+   "4": 8500,
+   "5": 1652,
+   "6": 345,
+   "7": 27,
+   "8": 9
+  },
+  "entries_with_one_segment": 361,
+  "entries_with_three_or_more": 25892,
+  "entries_with_listed_prefix": 3489,
+  "prefix_form_counts_top": [
+   [
+    "be",
+    502
+   ],
+   [
+    "ser",
+    231
+   ],
+   [
+    "no",
+    188
+   ],
+   [
+    "radio",
+    179
+   ],
+   [
+    "avto",
+    165
+   ],
+   [
+    "foto",
+    141
+   ]
+  ],
+  "prefix_tokens": 3622,
+  "root_tokens": 45749,
+  "distinct_roots": 11496,
+  "hapax_roots": 5116,
+  "roots_not_headwords": 11104,
+  "most_productive_roots": [
+   [
+    "oq",
+    156
+   ],
+   [
+    "qora",
+    154
+   ],
+   [
+    "suv",
+    120
+   ],
+   [
+    "kam",
+    114
+   ],
+   [
+    "graf",
+    112
+   ],
+   [
+    "gul",
+    109
+   ]
+  ],
+  "aligned_underlying_forms": 1125,
+  "most_frequent_alternations": [
+   [
+    "la > lo",
+    536
+   ],
+   [
+    "illa > illo",
+    113
+   ],
+   [
+    "ber > ver",
+    36
+   ],
+   [
+    "a > o",
+    32
+   ],
+   [
+    "q > g‘",
+    21
+   ]
+  ],
+  "straight_apostrophes_mapped": 9,
+  "appendix": {
+   "appendix_rows": 590,
+   "distinct_forms": 410,
+   "prefix_forms": 117,
+   "suffix_forms": 293,
+   "suffix_variant_strings": 364
+  },
+  "all_prefix_forms_attested": true
+ },
+ "table2": {
+  "post_root_tokens": 76564,
+  "distinct_forms": 2332,
+  "classes": {
+   "affix": {
+    "forms": 330,
+    "tokens": 68464,
+    "share": 0.894206154328405
+   },
+   "compound constituent": {
+    "forms": 1664,
+    "tokens": 6428,
+    "share": 0.08395590617000157
+   },
+   "noted allomorph": {
+    "forms": 37,
+    "tokens": 1072,
+    "share": 0.014001358340734548
+   },
+   "other": {
+    "forms": 301,
+    "tokens": 600,
+    "share": 0.00783658116085889
+   }
+  },
+  "top_affix_forms": [
+   [
+    "lik",
+    8501
+   ],
+   [
+    "moq",
+    6373
+   ],
+   [
+    "la",
+    4709
+   ],
+   [
+    "ish",
+    3893
+   ],
+   [
+    "li",
+    2946
+   ],
+   [
+    "lar",
+    2682
+   ],
+   [
+    "tir",
+    2614
+   ],
+   [
+    "t",
+    2293
+   ],
+   [
+    "sh",
+    2046
+   ],
+   [
+    "chi",
+    1767
+   ]
+  ],
+  "coverage_top_10_20_50_100": [
+   0.5524655293292825,
+   0.7153248422528629,
+   0.8801706006076186,
+   0.9545892731946717
+  ],
+  "affix_forms_occurring_once": 25,
+  "powerlaw_fit_all_post_root": {
+   "alpha": 10.75162946030702,
+   "beta": -1.4484880702221063,
+   "R2": 0.9902164163977385,
+   "ranks_used": 1253
+  },
+  "examples_by_class": {
+   "affix": [
+    "lik",
+    "moq",
+    "la",
+    "ish",
+    "li"
+   ],
+   "compound constituent": [
+    "xona",
+    "gul",
+    "noma",
+    "bosh",
+    "bop"
+   ],
+   "noted allomorph": [
+    "lo",
+    "illo",
+    "o",
+    "ol",
+    "g‘"
+   ],
+   "other": [
+    "baxsh",
+    "zoda",
+    "garlik",
+    "taxlit",
+    "yi"
+   ]
+  }
+ },
+ "table3": {
+  "suffixed_components": 42899,
+  "distinct_suffix_chains": 6318,
+  "variable_chains": 240,
+  "share_components_in_variable_chains": 0.26138138418144946,
+  "chains_with_10_or_more": 454,
+  "variable_among_them": 82,
+  "chain_level_examples": {
+   "chilik": {
+    "3/3": 718,
+    "6": 176
+   },
+   "lanmoq": {
+    "2/1/3": 542,
+    "3/3": 317,
+    "1/1/1/3": 1
+   },
+   "lashmoq": {
+    "4/3": 276,
+    "2/2/3": 321,
+    "1/1/2/3": 1
+   },
+   "lanish": {
+    "3/3": 215,
+    "2/1/3": 342,
+    "1/1/1/3": 1
+   },
+   "lashtirish": {
+    "2/2/3/3": 66,
+    "7/3": 4,
+    "4/3/3": 120
+   }
+  },
+  "rows": [
+   {
+    "pair": "la/n against lan",
+    "split_components": 1273,
+    "split_attested": 1157,
+    "split_rate": 0.9088766692851532,
+    "fused_components": 811,
+    "fused_attested": 23,
+    "fused_rate": 0.02836004932182491,
+    "chi2": 1563.7655823138018,
+    "p": 0.0,
+    "min_expected": 351.7965451055662,
+    "fisher_p": 0.0
+   },
+   {
+    "pair": "la/sh against lash",
+    "split_components": 1148,
+    "split_attested": 982,
+    "split_rate": 0.8554006968641115,
+    "fused_components": 867,
+    "fused_attested": 21,
+    "fused_rate": 0.02422145328719723,
+    "chi2": 1365.0355728063523,
+    "p": 8.324191555095721e-299,
+    "min_expected": 431.5637717121588,
+    "fisher_p": 0.0
+   },
+   {
+    "pair": "la/t against lat",
+    "split_components": 801,
+    "split_attested": 762,
+    "split_rate": 0.951310861423221,
+    "fused_components": 24,
+    "fused_attested": 0,
+    "fused_rate": 0.0,
+    "chi2": 298.9834135901551,
+    "p": 5.4859588003486376e-67,
+    "min_expected": 1.8327272727272728,
+    "fisher_p": 1.378630366103397e-29
+   },
+   {
+    "pair": "lash/tir against lashtir",
+    "split_components": 306,
+    "split_attested": 249,
+    "split_rate": 0.8137254901960784,
+    "fused_components": 9,
+    "fused_attested": 0,
+    "fused_rate": 0.0,
+    "chi2": 34.95320855614973,
+    "p": 3.377244165572409e-09,
+    "min_expected": 1.8857142857142857,
+    "fisher_p": 4.936530311458889e-07
+   },
+   {
+    "pair": "chi/lik against chilik",
+    "split_components": 718,
+    "split_attested": 33,
+    "split_rate": 0.04596100278551532,
+    "fused_components": 180,
+    "fused_attested": 7,
+    "fused_rate": 0.03888888888888889,
+    "chi2": 0.16913149962592858,
+    "p": 0.6808848275777046,
+    "min_expected": 8.017817371937639,
+    "fisher_p": 0.840438198462878
+   }
+  ],
+  "pairs_at_any_position": [
+   {
+    "pair": "la/n against lan",
+    "split": [
+     1406,
+     1260
+    ],
+    "fused": [
+     1026,
+     27
+    ]
+   },
+   {
+    "pair": "la/sh against lash",
+    "split": [
+     1332,
+     1116
+    ],
+    "fused": [
+     1053,
+     21
+    ]
+   },
+   {
+    "pair": "la/t against lat",
+    "split": [
+     871,
+     826
+    ],
+    "fused": [
+     26,
+     0
+    ]
+   },
+   {
+    "pair": "lash/tir against lashtir",
+    "split": [
+     375,
+     300
+    ],
+    "fused": [
+     9,
+     0
+    ]
+   },
+   {
+    "pair": "chi/lik against chilik",
+    "split": [
+     867,
+     35
+    ],
+    "fused": [
+     239,
+     7
+    ]
+   }
+  ]
+ },
+ "section34": {
+  "index_distinct_strings": 32956,
+  "headwords_inside_other_entries": 216,
+  "headwords_share": 0.004952765293955792,
+  "headword_agreement": {
+   "agree": 183,
+   "disagree": 32,
+   "ties": 1,
+   "rate": 0.8511627906976744,
+   "wilson95": [
+    0.7974405282228281,
+    0.8925566997791357
+   ]
+  },
+  "latent_strings": 32740,
+  "latent_with_boundary": 22154,
+  "latent_single_roots": 10586,
+  "support_one": 19909,
+  "support_two_or_more": 12831,
+  "unanimous": 12705,
+  "unanimous_rate": 0.9901800327332242,
+  "unanimous_wilson95": [
+   0.9883210806238126,
+   0.9917455637752686
+  ],
+  "conflicts_resolved_by_majority": 91,
+  "ties": 35,
+  "analyzable_strings": 76352,
+  "coverage_gain": 0.7507108135375584
+ }
+}

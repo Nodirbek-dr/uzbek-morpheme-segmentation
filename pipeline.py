@@ -146,26 +146,29 @@ def boundary_pattern(component):
 # ----------------------------------------------------------------------------
 
 def expand_suffix_variants(form):
-    """'-(i)b' -> {'ib', 'b'};  '-gan (-kan, -qan)' -> {'gan', 'kan', 'qan'}."""
-    form = form.strip()
-    main, alts = form, []
-    m = re.match(r"^(.*?)\s+\((.*)\)\s*$", form)
-    if m:
-        main, alt_text = m.group(1), m.group(2)
-        alts = [a.strip().strip("-").strip() for a in alt_text.split(",") if a.strip()]
-    main = main.strip().lstrip("-").strip()
-    variants = {""}
-    # expand optional groups written inside the form, e.g. (i)b
-    for piece in re.split(r"(\([^)]*\))", main):
-        if not piece:
-            continue
-        if piece.startswith("(") and piece.endswith(")"):
-            inner = piece[1:-1]
-            variants = {v + inner for v in variants} | set(variants)
-        else:
-            variants = {v + piece for v in variants}
-    variants = {v for v in variants if v}
-    variants |= {a for a in alts if a}
+    """Variant strings of one appendix form.
+    '-(i)b' -> {'ib', 'b'};  '-gan (-kan, -qan)' -> {'gan', 'kan', 'qan'};
+    '-iq/-uq' -> {'iq', 'uq'};  '-gin(-kin, -qin)' -> {'gin', 'kin', 'qin'}."""
+    variants = set()
+    for alt in form.split("/"):
+        alt = alt.strip()
+        alts = []
+        m = re.match(r"^(.*?)\s*\(([^()]*)\)\s*$", alt)
+        if m and re.search(r"(^|,)\s*-", m.group(2)):      # parenthesized list of alternative forms
+            alt, alt_text = m.group(1), m.group(2)
+            alts = [a.strip().strip("-").strip() for a in alt_text.split(",") if a.strip()]
+        main = alt.strip().lstrip("-").strip().rstrip(",").strip()   # "-i, (-si)" has a stray comma
+        vs = {""}
+        for piece in re.split(r"(\([^)]*\))", main):     # optional letters written in parentheses
+            if not piece:
+                continue
+            if piece.startswith("(") and piece.endswith(")"):
+                inner = piece[1:-1]
+                vs = {v + inner for v in vs} | set(vs)
+            else:
+                vs = {v + piece for v in vs}
+        variants |= {v for v in vs if v}
+        variants |= {a for a in alts if a}
     return variants
 
 
@@ -224,12 +227,12 @@ def run(entries, affix_forms):
     for e in parsed:
         e["roles"] = []
         for comp in e["components"]:
-            if len(comp) > 1 and comp[0] in P:
-                prefix, root, post = comp[0], comp[1], comp[2:]
-            else:
-                prefix, root, post = None, comp[0], comp[1:]
+            k = 0                                   # leading prefix forms, as long as a root remains
+            while k < len(comp) - 1 and comp[k] in P:
+                k += 1
+            prefixes, root, post = tuple(comp[:k]), comp[k], comp[k + 1:]
             R.add(root)
-            e["roles"].append((prefix, root, post))
+            e["roles"].append((prefixes, root, post))
 
     # allomorph set A from the underlying-form notes (segment-by-segment alignment)
     A = set()
@@ -254,9 +257,9 @@ def run(entries, affix_forms):
     post_root_tokens = Counter()
     class_of_form = {}
     for e in parsed:
-        for ci, (comp, (prefix, root, post)) in enumerate(zip(e["components"], e["roles"])):
+        for ci, (comp, (prefixes, root, post)) in enumerate(zip(e["components"], e["roles"])):
             si = 0
-            if prefix is not None:
+            for prefix in prefixes:
                 labels.append((e["id"], ci, si, prefix, "prefix")); si += 1
             labels.append((e["id"], ci, si, root, "root")); si += 1
             for seg in post:
@@ -379,7 +382,8 @@ def measures(state):
     seg_counts = [sum(len(c) for c in e["components"]) for e in parsed]
     hist = Counter(seg_counts)
     notes = [e for e in parsed if e["note"] is not None]
-    prefixed = sum(1 for e in parsed if e["roles"] and e["roles"][0][0] is not None)
+    prefixed = sum(1 for e in parsed if any(r[0] for r in e["roles"]))
+    prefix_counts = Counter(p for e in parsed for r in e["roles"] for p in r[0])
     H = set(surfaces)
     roots = Counter(root for e in parsed for (_, root, _) in e["roles"])
     res["table1"] = {
@@ -402,7 +406,8 @@ def measures(state):
         "entries_with_one_segment": hist.get(1, 0),
         "entries_with_three_or_more": sum(v for k, v in hist.items() if k >= 3),
         "entries_with_listed_prefix": prefixed,
-        "prefix_form_counts_top": Counter(e["roles"][0][0] for e in parsed if e["roles"][0][0]).most_common(6),
+        "prefix_form_counts_top": prefix_counts.most_common(6),
+        "prefix_tokens": sum(prefix_counts.values()),
         "root_tokens": sum(roots.values()),
         "distinct_roots": len(roots),
         "hapax_roots": sum(1 for c in roots.values() if c == 1),
@@ -412,7 +417,7 @@ def measures(state):
         "most_frequent_alternations": [(f"{u} > {s}", c) for (u, s), c in state["alternations"].most_common(5)],
         "straight_apostrophes_mapped": state["apostrophes_mapped"],
         "appendix": state["affix_info"],
-        "all_prefix_forms_attested": all(p in {e["roles"][0][0] for e in parsed} for p in state["P"]),
+        "all_prefix_forms_attested": all(p in prefix_counts for p in state["P"]),
     }
 
     # ---- affix inventory (Table 2) ----
@@ -441,13 +446,13 @@ def measures(state):
     # ---- consistency and the stem-attestation test (Table 3) ----
     chains = defaultdict(Counter)           # chain string -> pattern -> count
     suffixed_components = 0
-    comp_records = []                       # (eid, prefix, root, post)
+    comp_records = []                       # (eid, prefixes, root, post)
     for e in parsed:
-        for (prefix, root, post) in e["roles"]:
+        for (prefixes, root, post) in e["roles"]:
             if post:
                 suffixed_components += 1
                 chains["".join(post)][tuple(len(p) for p in post)] += 1
-                comp_records.append((e["id"], prefix, root, post))
+                comp_records.append((e["id"], prefixes, root, post))
     variable = {c for c, pats in chains.items() if len(pats) >= 2}
     covered = sum(sum(chains[c].values()) for c in variable)
     big = [c for c, pats in chains.items() if sum(pats.values()) >= 10]
@@ -461,14 +466,17 @@ def measures(state):
             return False
         return any(i != eid for ids in pats.values() for i in ids)
 
-    table3 = []
-    for x, y in PAIRS:
+    def pair_test(x, y, position):
+        """position='first': the pair must open the suffix chain (stem = root + x);
+        position='any': the pair may occur anywhere (stem = root + the segments before it + x)."""
         fused_str = x + y
         split_n = split_att = fused_n = fused_att = 0
-        for eid, prefix, root, post in comp_records:
-            head = (prefix or "") + root
+        for eid, prefixes, root, post in comp_records:
+            head = root                          # the intermediate stem is root + x; a listed prefix is not part of it
             matched = None
-            for i, seg in enumerate(post):
+            positions = [0] if position == "first" else range(len(post))
+            for i in positions:
+                seg = post[i]
                 if seg == x and i + 1 < len(post) and post[i + 1] == y:
                     matched = ("split", head + "".join(post[:i]) + x); break
                 if seg == fused_str:
@@ -481,6 +489,15 @@ def measures(state):
                 split_n += 1; split_att += att
             else:
                 fused_n += 1; fused_att += att
+        return split_n, split_att, fused_n, fused_att
+
+    table3 = []
+    any_position = []
+    for x, y in PAIRS:
+        fused_str = x + y
+        sn, sa, fn, fa = pair_test(x, y, "any")
+        any_position.append({"pair": f"{x}/{y} against {fused_str}", "split": [sn, sa], "fused": [fn, fa]})
+        split_n, split_att, fused_n, fused_att = pair_test(x, y, "first")
         a, b, c, d = split_att, split_n - split_att, fused_att, fused_n - fused_att
         chi, p, min_exp = chi2_2x2(a, b, c, d)
         table3.append({
@@ -502,6 +519,7 @@ def measures(state):
         "chain_level_examples": {c: dict((("/".join(map(str, pat))), n) for pat, n in chains[c].items())
                                  for c in ("chilik", "lanmoq", "lashmoq", "lanish", "lashtirish") if c in chains},
         "rows": table3,
+        "pairs_at_any_position": any_position,
     }
 
     # ---- internal evidence beyond the headword list (Sect. 3.4) ----
@@ -628,12 +646,14 @@ def make_figure(res, state, path):
     import numpy as np
     hist = res["table1"]["segments_histogram"]
     tokens = state["post_root_tokens"]; cls = state["class_of_form"]
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9, 3.6))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7, 2.9))
     ks = sorted(int(k) for k in hist)
     ax1.bar(ks, [hist[str(k)] for k in ks], color="#2f3e5f")
     for k in ks:
         ax1.text(k, hist[str(k)], f"{hist[str(k)]:,}", ha="center", va="bottom", fontsize=7)
-    ax1.set_xlabel("Minimal segments per entry"); ax1.set_ylabel("Entries"); ax1.set_title("(a) Segments per entry", fontsize=9)
+    ax1.set_xticks(ks)
+    ax1.set_xlabel("Minimal segments per entry", fontsize=8); ax1.set_ylabel("Entries", fontsize=8); ax1.set_title("(a) Segments per entry", fontsize=8)
+    ax1.tick_params(labelsize=7)
     allf = np.array(sorted(tokens.values(), reverse=True), dtype=float)
     aff = np.array(sorted((c for f, c in tokens.items() if cls[f] == "affix"), reverse=True), dtype=float)
     ax2.loglog(np.arange(1, len(allf) + 1), allf, ".", color="#9fb3d9", ms=3, label=f"all post-root segments (n = {len(allf):,})")
@@ -641,8 +661,8 @@ def make_figure(res, state, path):
     fit = res["table2"]["powerlaw_fit_all_post_root"]
     r = np.arange(1, len(allf) + 1)
     ax2.loglog(r, np.exp(fit["alpha"]) * r ** fit["beta"], "-", color="#c0504d", lw=1, label=f"power-law fit to all segments, slope {fit['beta']:.2f}")
-    ax2.set_xlabel("Rank"); ax2.set_ylabel("Frequency"); ax2.set_title("(b) Rank-frequency of post-root segments", fontsize=9)
-    ax2.legend(fontsize=6)
+    ax2.set_xlabel("Rank", fontsize=8); ax2.set_ylabel("Frequency", fontsize=8); ax2.set_title("(b) Rank-frequency of post-root segments", fontsize=8)
+    ax2.tick_params(labelsize=7); ax2.legend(fontsize=5.5)
     fig.tight_layout(); fig.savefig(path, dpi=300)
 
 

@@ -1,7 +1,8 @@
 # Input data
 
-Place here the two arrays of the electronic edition of the dictionary of Uzbek
-word structure (https://soztarkibi.uz/), exported as JSON:
+The two arrays of the electronic edition of the dictionary of Uzbek word
+structure (https://soztarkibi.uz/), exported as JSON from the page's script
+(`const DATA = [...]` and `const AFFIX = [...]`) on 12 November 2026:
 
 * `base.json`: the base array (43,706 items; a segmented string, or a pair of a
   string and a note);
