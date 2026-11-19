@@ -15,8 +15,6 @@ authors:
   - family-names: Khabibillayeva
     given-names: Gulasal
     orcid: "https://orcid.org/0009-0003-2441-649X"
-  - family-names: Ibragimova
-    given-names: Umida
 preferred-citation:
   type: conference-paper
   title: "Morpheme Segmentation Data for Uzbek: A Reproducible Processing Algorithm and Statistical Validation of Segmentation Consistency"
@@ -32,5 +30,3 @@ preferred-citation:
       given-names: Muyassar
     - family-names: Khabibillayeva
       given-names: Gulasal
-    - family-names: Ibragimova
-      given-names: Umida

@@ -2,7 +2,7 @@
 
 Code and derived tables for the paper
 
-> Khabibillayev N., Rahmanova G., Kholova M., Khabibillayeva G., Ibragimova U.
+> Khabibillayev N., Rahmanova G., Kholova M., Khabibillayeva G.
 > *Morpheme Segmentation Data for Uzbek: A Reproducible Processing Algorithm and
 > Statistical Validation of Segmentation Consistency.* MIP: Computing-V 2026.
 
