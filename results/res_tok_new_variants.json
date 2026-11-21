@@ -1,0 +1,77 @@
+{
+ "n_words_with_o_g": 716,
+ "letter_split": {
+  "GPT-4 (cl100k_base)": {
+   "dictionary": 1.0,
+   "modifier": 1.0,
+   "ascii": 1.0
+  },
+  "GPT-4o (o200k_base)": {
+   "dictionary": 1.0,
+   "modifier": 0.8910614525139665,
+   "ascii": 0.9930167597765364
+  },
+  "Llama 2 (32k SentencePiece)": {
+   "dictionary": 1.0,
+   "modifier": 1.0,
+   "ascii": 1.0
+  },
+  "Gemma (256k SentencePiece)": {
+   "dictionary": 1.0,
+   "modifier": 1.0,
+   "ascii": 1.0
+  },
+  "Llama 3 (128k BPE)": {
+   "dictionary": 1.0,
+   "modifier": 1.0,
+   "ascii": 1.0
+  },
+  "Llama 4 (200k BPE)": {
+   "dictionary": 1.0,
+   "modifier": 0.9050279329608939,
+   "ascii": 0.8729050279329609
+  },
+  "Mistral Tekken (131k BPE)": {
+   "dictionary": 1.0,
+   "modifier": 0.5181564245810056,
+   "ascii": 1.0
+  }
+ },
+ "fertility_o_g": {
+  "GPT-4 (cl100k_base)": {
+   "dictionary": 5.983240223463687,
+   "modifier": 7.138268156424581,
+   "ascii": 5.662011173184357
+  },
+  "GPT-4o (o200k_base)": {
+   "dictionary": 5.339385474860335,
+   "modifier": 5.314245810055866,
+   "ascii": 5.011173184357542
+  },
+  "Llama 2 (32k SentencePiece)": {
+   "dictionary": 6.210893854748603,
+   "modifier": 6.210893854748603,
+   "ascii": 6.210893854748603
+  },
+  "Gemma (256k SentencePiece)": {
+   "dictionary": 5.495810055865922,
+   "modifier": 5.495810055865922,
+   "ascii": 5.495810055865922
+  },
+  "Llama 3 (128k BPE)": {
+   "dictionary": 5.888268156424581,
+   "modifier": 7.043296089385475,
+   "ascii": 5.581005586592179
+  },
+  "Llama 4 (200k BPE)": {
+   "dictionary": 5.378491620111732,
+   "modifier": 5.328212290502793,
+   "ascii": 4.7863128491620115
+  },
+  "Mistral Tekken (131k BPE)": {
+   "dictionary": 5.643854748603352,
+   "modifier": 4.923184357541899,
+   "ascii": 5.2918994413407825
+  }
+ }
+}

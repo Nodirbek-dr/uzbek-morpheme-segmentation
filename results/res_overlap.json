@@ -1,0 +1,9 @@
+{
+ "n_test": 4341,
+ "first_as_later_in_train": 1328,
+ "later_as_first_in_train": 592,
+ "any_overlap": 1716,
+ "all_roots_groups": 8324,
+ "all_roots_largest_group": 25322,
+ "n_types": 43787
+}

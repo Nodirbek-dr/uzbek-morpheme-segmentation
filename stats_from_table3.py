@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recompute the last column of Table 3 from the published counts.
+"""Recompute the stem-attestation tests (Sect. 3.1 of the chapter; Table 3 of an earlier version) from the published counts.
 
 Each row gives the number of components with the split reading and with the
 fused reading and the number of them whose intermediate stem is attested
@@ -14,7 +14,7 @@ import math
 from pipeline import chi2_2x2, fisher_exact, wilson
 
 TABLE3 = [
-    # pair, split components, split attested, fused components, fused attested (Table 3 of the paper)
+    # pair, split components, split attested, fused components, fused attested (Table 3 of the earlier version)
     ("la/n against lan", 1273, 1157, 811, 23),
     ("la/sh against lash", 1148, 982, 867, 21),
     ("la/t against lat", 801, 762, 24, 0),
