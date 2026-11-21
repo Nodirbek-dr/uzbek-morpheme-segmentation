@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Reference implementation of Algorithm 1 and of the measures of the paper
+"""Reference implementation of the processing algorithm and of the source-base statistics of the chapter
 
-    Morpheme Segmentation Data for Uzbek: A Reproducible Processing Algorithm
-    and Statistical Validation of Segmentation Consistency
+    Morpheme Segmentation Data for Uzbek: An Open Benchmark, Segmentation Baselines,
+    and the Morphological Alignment of Language Model Tokenizers (in preparation)
+
+(Algorithm 1 and the table numbers below follow an earlier version of the manuscript.)
 
 Input
 -----

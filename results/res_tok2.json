@@ -1,0 +1,105 @@
+{
+ "n_words_with_o_g": 716,
+ "letter_split": {
+  "GPT-4 (cl100k_base)": {
+   "dictionary": 1.0,
+   "modifier": 1.0,
+   "ascii": 1.0
+  },
+  "GPT-4o (o200k_base)": {
+   "dictionary": 1.0,
+   "modifier": 0.8910614525139665,
+   "ascii": 0.9930167597765364
+  },
+  "Llama 2 (32k SentencePiece)": {
+   "dictionary": 1.0,
+   "modifier": 1.0,
+   "ascii": 1.0
+  },
+  "Gemma (256k SentencePiece)": {
+   "dictionary": 1.0,
+   "modifier": 1.0,
+   "ascii": 1.0
+  }
+ },
+ "fertility_o_g": {
+  "GPT-4 (cl100k_base)": {
+   "dictionary": 5.983240223463687,
+   "modifier": 7.138268156424581,
+   "ascii": 5.662011173184357
+  },
+  "GPT-4o (o200k_base)": {
+   "dictionary": 5.339385474860335,
+   "modifier": 5.314245810055866,
+   "ascii": 5.011173184357542
+  },
+  "Llama 2 (32k SentencePiece)": {
+   "dictionary": 6.210893854748603,
+   "modifier": 6.210893854748603,
+   "ascii": 6.210893854748603
+  },
+  "Gemma (256k SentencePiece)": {
+   "dictionary": 5.495810055865922,
+   "modifier": 5.495810055865922,
+   "ascii": 5.495810055865922
+  }
+ },
+ "in_domain_noscript": {
+  "bpe4000_noscript": {
+   "P": 0.3228834059022738,
+   "R": 0.4299149703684617,
+   "F1": 0.3687904072498204,
+   "acc": 0.029716655148583276,
+   "tp": 3337,
+   "fp": 6998,
+   "fn": 4425,
+   "n": 4341,
+   "fertility": 3.3858557935959457,
+   "clean_words": 0.09007141211702373,
+   "o_g_letter_split_share": 0.009776536312849162,
+   "words_with_o_g": 716
+  },
+  "bpe16000_noscript": {
+   "P": 0.34790081021360175,
+   "R": 0.36511208451430044,
+   "F1": 0.3562987176263515,
+   "acc": 0.05943331029716655,
+   "tp": 2834,
+   "fp": 5312,
+   "fn": 4928,
+   "n": 4341,
+   "fertility": 2.877217231052753,
+   "clean_words": 0.17161944252476388,
+   "o_g_letter_split_share": 0.009776536312849162,
+   "words_with_o_g": 716
+  },
+  "unigram4000_noscript": {
+   "P": 0.4136833113302788,
+   "R": 0.6862037871956718,
+   "F1": 0.5161821705426356,
+   "acc": 0.0571296936189818,
+   "tp": 5327,
+   "fp": 7550,
+   "fn": 2436,
+   "n": 4341,
+   "fertility": 4.287952084773094,
+   "clean_words": 0.10020732550103663,
+   "o_g_letter_split_share": 0.06005586592178771,
+   "words_with_o_g": 716
+  },
+  "unigram16000_noscript": {
+   "P": 0.45487400863367133,
+   "R": 0.583666108463223,
+   "F1": 0.5112841345068834,
+   "acc": 0.0976733471550334,
+   "tp": 4531,
+   "fp": 5430,
+   "fn": 3232,
+   "n": 4341,
+   "fertility": 3.449665975581663,
+   "clean_words": 0.18313752591568763,
+   "o_g_letter_split_share": 0.0,
+   "words_with_o_g": 716
+  }
+ }
+}

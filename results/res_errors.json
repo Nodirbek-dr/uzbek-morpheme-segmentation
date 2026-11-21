@@ -1,0 +1,122 @@
+{
+ "test_words": 4341,
+ "in_variable_chain": 1063,
+ "share_in_variable": 0.24487445289103893,
+ "by_system": {
+  "CRF": {
+   "variable": {
+    "P": 0.913800803930326,
+    "R": 0.9093333333333333,
+    "F1": 0.9115615950100245,
+    "acc": 0.6716839134524929
+   },
+   "other": {
+    "P": 0.9200251889168766,
+    "R": 0.7954627949183303,
+    "F1": 0.8532217247420674,
+    "acc": 0.6269066503965833
+   },
+   "wrong_words": 1572,
+   "wrong_in_variable_share": 0.22201017811704835
+  },
+  "Affix stripping": {
+   "variable": {
+    "P": 0.5711297071129707,
+    "R": 0.728,
+    "F1": 0.6400937866354045,
+    "acc": 0.10348071495766697
+   },
+   "other": {
+    "P": 0.485935388772878,
+    "R": 0.7178370531663945,
+    "F1": 0.5795487840609433,
+    "acc": 0.17480170835875533
+   },
+   "wrong_words": 3658,
+   "wrong_in_variable_share": 0.26052487698195737
+  },
+  "Morfessor": {
+   "variable": {
+    "P": 0.4368675758908931,
+    "R": 0.4411372723234118,
+    "F1": 0.4389920424403183,
+    "acc": 0.03857008466603951
+   },
+   "other": {
+    "P": 0.4784799193896646,
+    "R": 0.6029385089787774,
+    "F1": 0.5335473515248796,
+    "acc": 0.1333129957291031
+   },
+   "wrong_words": 3863,
+   "wrong_in_variable_share": 0.26456122184830444
+  }
+ },
+ "crf_error_types": {
+  "missing_only": 1018,
+  "extra_only": 371,
+  "wrong_words": 1572
+ },
+ "crf_examples_variable": [
+  [
+   "achom/lash/ish/moq",
+   "achom/la/sh/ish/moq"
+  ],
+  [
+   "adolat/ta/lab",
+   "adolat/talab"
+  ],
+  [
+   "amaki/chi/lik",
+   "amaki/chilik"
+  ],
+  [
+   "anti/ay/la/n/ish",
+   "anti/aylan/ish"
+  ],
+  [
+   "ardoq/lash/ish",
+   "ardoq/la/sh/ish"
+  ],
+  [
+   "avto/fag/iya",
+   "avtofag/iya"
+  ],
+  [
+   "avto/ion/lan/ish",
+   "avto/ion/la/n/ish"
+  ],
+  [
+   "avto/tipiya",
+   "avto/tip/iya"
+  ],
+  [
+   "axoman/iy/lar",
+   "axomaniy/lar"
+  ],
+  [
+   "ayla/n/ib",
+   "aylan/ib"
+  ],
+  [
+   "ayla/n/ish",
+   "aylan/ish"
+  ],
+  [
+   "ayla/n/ish/moq",
+   "aylan/ish/moq"
+  ],
+  [
+   "aylan/ma/choq",
+   "aylan/machoq"
+  ],
+  [
+   "ayla/n/mas",
+   "aylan/mas"
+  ],
+  [
+   "ayla/n/maslik",
+   "aylan/maslik"
+  ]
+ ]
+}

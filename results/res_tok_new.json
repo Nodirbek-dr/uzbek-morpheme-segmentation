@@ -1,0 +1,343 @@
+{
+ "test_words": 4341,
+ "tekken_inner_vocab": 130072,
+ "vocab": {
+  "GPT-4 (cl100k_base)": 100277,
+  "GPT-4o (o200k_base)": 200019,
+  "Llama 3 (128k BPE)": 128000,
+  "Llama 4 (200k BPE)": 200000,
+  "Mistral Tekken (131k BPE)": 130072
+ },
+ "llm": {
+  "GPT-4 (cl100k_base)": {
+   "P": 0.2553177816335711,
+   "R": 0.5119185671949491,
+   "F1": 0.3407083440528257,
+   "acc": 0.0285648468094909,
+   "tp": 3973,
+   "fp": 11588,
+   "fn": 3788,
+   "n": 4341,
+   "fertility": 4.5883436996083855,
+   "clean_words": 0.038931121861322276,
+   "o_g_letter_split_share": 1.0,
+   "words_with_o_g": 716
+  },
+  "GPT-4o (o200k_base)": {
+   "P": 0.27499810763757476,
+   "R": 0.4681701030927835,
+   "F1": 0.34647847026846595,
+   "acc": 0.046763418567150425,
+   "tp": 3633,
+   "fp": 9578,
+   "fn": 4127,
+   "n": 4341,
+   "fertility": 4.044229440221147,
+   "clean_words": 0.0691085003455425,
+   "o_g_letter_split_share": 1.0,
+   "words_with_o_g": 716
+  },
+  "Llama 2 (32k SentencePiece)": {
+   "P": 0.24785159722633793,
+   "R": 0.5387786652924504,
+   "F1": 0.33951694743251465,
+   "acc": 0.0202718267680258,
+   "tp": 4182,
+   "fp": 12691,
+   "fn": 3580,
+   "n": 4341,
+   "fertility": 4.88965676111495,
+   "clean_words": 0.027413038470398526,
+   "o_g_letter_split_share": 1.0,
+   "words_with_o_g": 716
+  },
+  "Gemma (256k SentencePiece)": {
+   "P": 0.33815028901734107,
+   "R": 0.5878639525895388,
+   "F1": 0.42933759879563416,
+   "acc": 0.0571296936189818,
+   "tp": 4563,
+   "fp": 8931,
+   "fn": 3199,
+   "n": 4341,
+   "fertility": 4.1085003455425015,
+   "clean_words": 0.07717115871918913,
+   "o_g_letter_split_share": 1.0,
+   "words_with_o_g": 716
+  },
+  "Llama 3 (128k BPE)": {
+   "P": 0.26273387043078766,
+   "R": 0.5084396340677748,
+   "F1": 0.3464442493415276,
+   "acc": 0.03363280350149735,
+   "tp": 3946,
+   "fp": 11073,
+   "fn": 3815,
+   "n": 4341,
+   "fertility": 4.4634876756507715,
+   "clean_words": 0.046072333563695,
+   "o_g_letter_split_share": 1.0,
+   "words_with_o_g": 716
+  },
+  "Llama 4 (200k BPE)": {
+   "P": 0.2742439247352784,
+   "R": 0.4638577502899111,
+   "F1": 0.3446955189582535,
+   "acc": 0.046072333563695,
+   "tp": 3600,
+   "fp": 9527,
+   "fn": 4161,
+   "n": 4341,
+   "fertility": 4.026261230131306,
+   "clean_words": 0.06956922368117945,
+   "o_g_letter_split_share": 1.0,
+   "words_with_o_g": 716
+  },
+  "Mistral Tekken (131k BPE)": {
+   "P": 0.2620012801365479,
+   "R": 0.47468109779667567,
+   "F1": 0.33764091284025294,
+   "acc": 0.03939184519695923,
+   "tp": 3684,
+   "fp": 10377,
+   "fn": 4077,
+   "n": 4341,
+   "fertility": 4.239345772863396,
+   "clean_words": 0.0589725869615296,
+   "o_g_letter_split_share": 1.0,
+   "words_with_o_g": 716
+  }
+ },
+ "variants": {
+  "n_words": 731,
+  "GPT-4 (cl100k_base)": {
+   "dictionary": {
+    "fertility": 5.956224350205198,
+    "F1": 0.31332007952286284,
+    "letter_split": 1.0
+   },
+   "modifier": {
+    "fertility": 7.1121751025991795,
+    "F1": 0.26961702127659576,
+    "letter_split": 1.0
+   },
+   "ascii": {
+    "fertility": 5.640218878248974,
+    "F1": 0.3033965409460304,
+    "letter_split": 1.0
+   }
+  },
+  "GPT-4o (o200k_base)": {
+   "dictionary": {
+    "fertility": 5.317373461012312,
+    "F1": 0.3107604646066185,
+    "letter_split": 1.0
+   },
+   "modifier": {
+    "fertility": 5.298221614227086,
+    "F1": 0.3134754891184876,
+    "letter_split": 0.8910614525139665
+   },
+   "ascii": {
+    "fertility": 4.99452804377565,
+    "F1": 0.30228795932516755,
+    "letter_split": 0.9930167597765364
+   }
+  },
+  "Llama 2 (32k SentencePiece)": {
+   "dictionary": {
+    "fertility": 6.192886456908345,
+    "F1": 0.31481837401499135,
+    "letter_split": 1.0
+   },
+   "modifier": {
+    "fertility": 6.192886456908345,
+    "F1": 0.31481837401499135,
+    "letter_split": 1.0
+   },
+   "ascii": {
+    "fertility": 6.192886456908345,
+    "F1": 0.31481837401499135,
+    "letter_split": 1.0
+   }
+  },
+  "Gemma (256k SentencePiece)": {
+   "dictionary": {
+    "fertility": 5.476060191518468,
+    "F1": 0.392391536653131,
+    "letter_split": 1.0
+   },
+   "modifier": {
+    "fertility": 5.476060191518468,
+    "F1": 0.392391536653131,
+    "letter_split": 1.0
+   },
+   "ascii": {
+    "fertility": 5.476060191518468,
+    "F1": 0.392391536653131,
+    "letter_split": 1.0
+   }
+  },
+  "Llama 3 (128k BPE)": {
+   "dictionary": {
+    "fertility": 5.8604651162790695,
+    "F1": 0.3157258064516129,
+    "letter_split": 1.0
+   },
+   "modifier": {
+    "fertility": 7.01641586867305,
+    "F1": 0.27114556416881996,
+    "letter_split": 1.0
+   },
+   "ascii": {
+    "fertility": 5.559507523939809,
+    "F1": 0.30548523206751055,
+    "letter_split": 1.0
+   }
+  },
+  "Llama 4 (200k BPE)": {
+   "dictionary": {
+    "fertility": 5.357045143638851,
+    "F1": 0.3057491289198606,
+    "letter_split": 1.0
+   },
+   "modifier": {
+    "fertility": 5.313269493844049,
+    "F1": 0.30964912280701756,
+    "letter_split": 0.9050279329608939
+   },
+   "ascii": {
+    "fertility": 4.774281805745554,
+    "F1": 0.30436869899183866,
+    "letter_split": 0.8729050279329609
+   }
+  },
+  "Mistral Tekken (131k BPE)": {
+   "dictionary": {
+    "fertility": 5.6169630642954855,
+    "F1": 0.29945629443747385,
+    "letter_split": 1.0
+   },
+   "modifier": {
+    "fertility": 4.908344733242134,
+    "F1": 0.33630393996247654,
+    "letter_split": 0.5181564245810056
+   },
+   "ascii": {
+    "fertility": 5.272229822161423,
+    "F1": 0.28741721854304636,
+    "letter_split": 1.0
+   }
+  }
+ },
+ "all_words": {
+  "GPT-4 (cl100k_base)": {
+   "P": 0.2642950844972606,
+   "R": 0.524622807689362,
+   "F1": 0.3515073765234124,
+   "fertility": 4.553246397332542
+  },
+  "GPT-4o (o200k_base)": {
+   "P": 0.2808956595770329,
+   "R": 0.47592483852025835,
+   "F1": 0.35328118559509536,
+   "fertility": 4.031744581725169
+  },
+  "Llama 2 (32k SentencePiece)": {
+   "P": 0.25643910307922163,
+   "R": 0.5499093717290853,
+   "F1": 0.34977003235378884,
+   "fertility": 4.837508849658574
+  },
+  "Gemma (256k SentencePiece)": {
+   "P": 0.34194839759804674,
+   "R": 0.5952596714699613,
+   "F1": 0.43437118721418655,
+   "fertility": 4.115034142553726
+  },
+  "Llama 3 (128k BPE)": {
+   "P": 0.2709002306920095,
+   "R": 0.5201496061987005,
+   "F1": 0.35625732221231354,
+   "fertility": 4.436979012035535
+  },
+  "Llama 4 (200k BPE)": {
+   "P": 0.28124054920462105,
+   "R": 0.47482767424049016,
+   "F1": 0.3532506505099618,
+   "fertility": 4.021490396693083
+  },
+  "Mistral Tekken (131k BPE)": {
+   "P": 0.26849613323719446,
+   "R": 0.4848229557580863,
+   "F1": 0.3455988062091682,
+   "fertility": 4.230844771279147
+  }
+ },
+ "decomp": {
+  "GPT-4 (cl100k_base)": {
+   "total": 15561,
+   "on_morpheme": 3973,
+   "inside_o_g_letter": 811,
+   "inside_utf8_char": 0,
+   "inside_other": 10777,
+   "share_on": 0.2553177816335711,
+   "share_letter": 0.05211747317010475
+  },
+  "GPT-4o (o200k_base)": {
+   "total": 13211,
+   "on_morpheme": 3633,
+   "inside_o_g_letter": 811,
+   "inside_utf8_char": 0,
+   "inside_other": 8767,
+   "share_on": 0.27499810763757476,
+   "share_letter": 0.06138823707516464
+  },
+  "Llama 2 (32k SentencePiece)": {
+   "total": 16873,
+   "on_morpheme": 4182,
+   "inside_o_g_letter": 811,
+   "inside_utf8_char": 0,
+   "inside_other": 11880,
+   "share_on": 0.24785159722633793,
+   "share_letter": 0.04806495584661886
+  },
+  "Gemma (256k SentencePiece)": {
+   "total": 13494,
+   "on_morpheme": 4563,
+   "inside_o_g_letter": 811,
+   "inside_utf8_char": 0,
+   "inside_other": 8120,
+   "share_on": 0.33815028901734107,
+   "share_letter": 0.06010078553431154
+  },
+  "Llama 3 (128k BPE)": {
+   "total": 15019,
+   "on_morpheme": 3946,
+   "inside_o_g_letter": 811,
+   "inside_utf8_char": 0,
+   "inside_other": 10262,
+   "share_on": 0.26273387043078766,
+   "share_letter": 0.053998268859444705
+  },
+  "Llama 4 (200k BPE)": {
+   "total": 13127,
+   "on_morpheme": 3600,
+   "inside_o_g_letter": 811,
+   "inside_utf8_char": 0,
+   "inside_other": 8716,
+   "share_on": 0.2742439247352784,
+   "share_letter": 0.061781061933419666
+  },
+  "Mistral Tekken (131k BPE)": {
+   "total": 14061,
+   "on_morpheme": 3684,
+   "inside_o_g_letter": 811,
+   "inside_utf8_char": 0,
+   "inside_other": 9566,
+   "share_on": 0.2620012801365479,
+   "share_letter": 0.05767726335253538
+  }
+ },
+ "o200k_harmony_same_ranks": true
+}

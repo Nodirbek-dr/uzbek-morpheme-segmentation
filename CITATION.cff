@@ -1,7 +1,8 @@
 cff-version: 1.2.0
-message: "If you use this code or the derived tables, please cite the paper."
-title: "Morpheme Segmentation Data for Uzbek: processing algorithm and statistics"
+message: "If you use this code, the derived tables, or the benchmark, please cite the chapter."
+title: "Uzbek morpheme segmentation: dictionary data, benchmark, and experiments"
 type: software
+repository-code: "https://github.com/Nodirbek-dr/uzbek-morpheme-segmentation"
 authors:
   - family-names: Khabibillayev
     given-names: Nodirbek
@@ -16,11 +17,9 @@ authors:
     given-names: Gulasal
     orcid: "https://orcid.org/0009-0003-2441-649X"
 preferred-citation:
-  type: conference-paper
-  title: "Morpheme Segmentation Data for Uzbek: A Reproducible Processing Algorithm and Statistical Validation of Segmentation Consistency"
-  conference:
-    name: "MIP: Computing-V 2026"
-  year: 2026
+  type: generic
+  status: in-preparation
+  title: "Morpheme Segmentation Data for Uzbek: An Open Benchmark, Segmentation Baselines, and the Morphological Alignment of Language Model Tokenizers"
   authors:
     - family-names: Khabibillayev
       given-names: Nodirbek

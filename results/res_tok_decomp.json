@@ -1,0 +1,46 @@
+{
+ "GPT-4": {
+  "total": 15561,
+  "on_morpheme": 3973,
+  "inside_o_g_letter": 811,
+  "inside_utf8_char": 0,
+  "inside_other": 10777,
+  "share_on": 0.2553177816335711,
+  "share_letter": 0.05211747317010475,
+  "share_byte": 0.0,
+  "share_other": 0.6925647451963242
+ },
+ "GPT-4o": {
+  "total": 13211,
+  "on_morpheme": 3633,
+  "inside_o_g_letter": 811,
+  "inside_utf8_char": 0,
+  "inside_other": 8767,
+  "share_on": 0.27499810763757476,
+  "share_letter": 0.06138823707516464,
+  "share_byte": 0.0,
+  "share_other": 0.6636136552872606
+ },
+ "Llama 2": {
+  "total": 16873,
+  "on_morpheme": 4182,
+  "inside_o_g_letter": 811,
+  "inside_utf8_char": 0,
+  "inside_other": 11880,
+  "share_on": 0.24785159722633793,
+  "share_letter": 0.04806495584661886,
+  "share_byte": 0.0,
+  "share_other": 0.7040834469270432
+ },
+ "Gemma": {
+  "total": 13494,
+  "on_morpheme": 4563,
+  "inside_o_g_letter": 811,
+  "inside_utf8_char": 0,
+  "inside_other": 8120,
+  "share_on": 0.33815028901734107,
+  "share_letter": 0.06010078553431154,
+  "share_byte": 0.0,
+  "share_other": 0.6017489254483475
+ }
+}

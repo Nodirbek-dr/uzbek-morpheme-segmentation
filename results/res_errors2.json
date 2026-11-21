@@ -1,0 +1,129 @@
+{
+ "CRF": {
+  "gold_boundaries_by_type": {
+   "before suffix": 6429,
+   "compound": 803,
+   "after prefix": 431,
+   "other": 97
+  },
+  "missed_by_type": {
+   "before suffix": 860,
+   "after prefix": 70,
+   "compound": 344,
+   "other": 57
+  },
+  "recall_by_type": {
+   "before suffix": 0.8662311401462125,
+   "compound": 0.5716064757160648,
+   "after prefix": 0.8375870069605569,
+   "other": 0.41237113402061853
+  },
+  "extra_total": 574,
+  "wrong_words": 1572,
+  "missing_only": 1018
+ },
+ "CRF+lex(jk)": {
+  "gold_boundaries_by_type": {
+   "before suffix": 6429,
+   "compound": 803,
+   "after prefix": 431,
+   "other": 97
+  },
+  "missed_by_type": {
+   "before suffix": 845,
+   "after prefix": 70,
+   "other": 54,
+   "compound": 305
+  },
+  "recall_by_type": {
+   "before suffix": 0.86856431793436,
+   "compound": 0.6201743462017435,
+   "after prefix": 0.8375870069605569,
+   "other": 0.44329896907216493
+  },
+  "extra_total": 408,
+  "wrong_words": 1423,
+  "missing_only": 1028
+ },
+ "BiLSTM seed1": {
+  "gold_boundaries_by_type": {
+   "before suffix": 6432,
+   "compound": 803,
+   "after prefix": 431,
+   "other": 97
+  },
+  "missed_by_type": {
+   "before suffix": 563,
+   "other": 35,
+   "compound": 220,
+   "after prefix": 51
+  },
+  "recall_by_type": {
+   "before suffix": 0.9124689054726368,
+   "compound": 0.726027397260274,
+   "after prefix": 0.8816705336426914,
+   "other": 0.6391752577319587
+  },
+  "extra_total": 718,
+  "wrong_words": 1298,
+  "missing_only": 616
+ },
+ "BiLSTM seed2": {
+  "gold_boundaries_by_type": {
+   "before suffix": 6430,
+   "compound": 803,
+   "after prefix": 431,
+   "other": 97
+  },
+  "missed_by_type": {
+   "before suffix": 617,
+   "after prefix": 65,
+   "other": 32,
+   "compound": 221
+  },
+  "recall_by_type": {
+   "before suffix": 0.9040435458786936,
+   "compound": 0.7247820672478207,
+   "after prefix": 0.8491879350348028,
+   "other": 0.6701030927835052
+  },
+  "extra_total": 764,
+  "wrong_words": 1374,
+  "missing_only": 647
+ },
+ "BiLSTM seed3": {
+  "gold_boundaries_by_type": {
+   "before suffix": 6429,
+   "compound": 803,
+   "after prefix": 431,
+   "other": 97
+  },
+  "missed_by_type": {
+   "before suffix": 661,
+   "after prefix": 62,
+   "other": 35,
+   "compound": 232
+  },
+  "recall_by_type": {
+   "before suffix": 0.8971846321356354,
+   "compound": 0.7110834371108343,
+   "after prefix": 0.8561484918793504,
+   "other": 0.6391752577319587
+  },
+  "extra_total": 669,
+  "wrong_words": 1352,
+  "missing_only": 717
+ },
+ "BiLSTM": {
+  "recall_by_type": {
+   "before suffix": 0.9045656944956552,
+   "compound": 0.7206309672063096,
+   "after prefix": 0.8623356535189481,
+   "other": 0.6494845360824743
+  },
+  "wrong_words": 1341.3333333333333,
+  "missing_only": 660.0,
+  "missing_only_share": 0.4919298778198649,
+  "seeds": 3
+ }
+}

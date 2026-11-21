@@ -1,0 +1,31 @@
+{
+ "components": 45749,
+ "word_types": 43787,
+ "types_with_two_or_more_patterns": 117,
+ "gold_boundaries_per_type_mean": 1.788110626441638,
+ "root_groups": 11401,
+ "largest_group": 152,
+ "random": {
+  "train": 35030,
+  "dev": 4378,
+  "test": 4379
+ },
+ "root": {
+  "train": 35030,
+  "dev": 4416,
+  "test": 4341
+ },
+ "root_overlap_random_test_train": 0.8038487508440243,
+ "root_overlap_root_test_train": 0.0,
+ "test_words_with_root_seen_in_train_random": 0.8629824160767299,
+ "segments_per_type_hist": {
+  "1": 912,
+  "2": 18635,
+  "3": 14961,
+  "4": 7588,
+  "5": 1494,
+  "6": 183,
+  "7": 14
+ },
+ "chars_per_type_mean": 10.369561742069564
+}

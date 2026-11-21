@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+# tokenizer files are not redistributed; see benchmark/README.md
+tokenizers/
+# SentencePiece models trained by the tokenizer audit
+results/sp/

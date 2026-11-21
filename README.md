@@ -1,27 +1,40 @@
-# Morpheme segmentation data for Uzbek: processing algorithm and statistics
+# Uzbek morpheme segmentation: dictionary data, benchmark, and experiments
 
-Code and derived tables for the paper
+Code, data, and a morpheme segmentation benchmark for the chapter
 
 > Khabibillayev N., Rahmanova G., Kholova M., Khabibillayeva G.
-> *Morpheme Segmentation Data for Uzbek: A Reproducible Processing Algorithm and
-> Statistical Validation of Segmentation Consistency.* MIP: Computing-V 2026.
+> *Morpheme Segmentation Data for Uzbek: An Open Benchmark, Segmentation
+> Baselines, and the Morphological Alignment of Language Model Tokenizers.*
+> In preparation.
 
-The source is the electronic edition of the dictionary of Uzbek word structure
+The source is the electronic edition of the Dictionary of Uzbek Word Structure
 (https://soztarkibi.uz/), whose 43,706 entries are divided into roots and
-affixes by explicit boundary marks. `pipeline.py` implements Algorithm 1 of the
-paper (extraction, normalization, tokenization, segment typing, note typing,
-prefix indexing) and computes every number reported in Tables 1-3, Fig. 1 and
-the text.
+affixes by explicit boundary marks. The repository has two parts:
+
+* `pipeline.py` processes the electronic edition (extraction, normalization,
+  tokenization, segment typing, note typing, prefix indexing) and computes the
+  statistics of the source base in `output/`, including the stem-attestation
+  tests of Sect. 3.1 of the chapter. The table numbers inside
+  `output/results.md` follow an earlier version of the manuscript.
+* `benchmark/`, `experiments/`, `results/`, and `figures/` hold the benchmark
+  splits built from the processed base, the segmentation and tokenizer
+  experiments, their results, and Fig. 1 of the chapter. See
+  `benchmark/README.md` for the splits, the systems, and the commands that
+  reproduce every number of the chapter.
 
 ## Contents
 
 | File | Purpose |
 |---|---|
-| `pipeline.py` | Algorithm 1, the measures of Sect. 2.3, the statistical tests, the output tables and Fig. 1 |
-| `stats_from_table3.py` | Recomputes the chi-square and Fisher tests of Table 3 from the published counts alone, without the data |
+| `pipeline.py` | The processing algorithm, the statistics of the base, the stem-attestation tests, the output tables and `output/fig1.png` |
+| `stats_from_table3.py` | Recomputes the chi-square and Fisher tests of the stem-attestation table from the published counts alone, without the data |
 | `tests/sample_base.json`, `tests/sample_affixes.json` | A small synthetic sample in the input format, for a smoke test |
 | `data/` | The two arrays of the electronic edition, exported from its HTML on 12 November 2026 (`base.json`, 43,706 items; `affixes.json`, 590 rows) |
-| `output/` | Derived tables written by the pipeline (`entries.csv`, `segments.csv`, `notes.csv`, `index.csv`, `results.json`, `results.md`) and `fig1.png` |
+| `output/` | Derived tables written by the pipeline (`entries.csv`, `segments.csv`, `notes.csv`, `index.csv`, `results.json`, `results.md`) and `fig1.png` (segments per entry; rank-frequency of post-root segments) |
+| `benchmark/` | The benchmark: gold segmentations of 43,787 word types, the random and root-disjoint splits, and their documentation |
+| `experiments/` | The segmentation systems (affix stripping, Morfessor, CRF, BiLSTM tagger) and the tokenizer audit |
+| `results/` | Results and predictions of every experiment reported in the chapter |
+| `figures/` | Fig. 1 of the chapter and the script that draws it |
 
 ## Input format
 
@@ -43,8 +56,8 @@ pip install -r requirements.txt
 python pipeline.py data/base.json data/affixes.json --out output --figure fig1.png
 ```
 
-`output/results.md` lists the values in the order of the paper. The smoke test
-runs on the synthetic sample:
+`output/results.md` lists the statistics of the base. The smoke test runs on
+the synthetic sample:
 
 ```bash
 python pipeline.py tests/sample_base.json tests/sample_affixes.json --out /tmp/smoke
@@ -53,8 +66,7 @@ python pipeline.py tests/sample_base.json tests/sample_affixes.json --out /tmp/s
 ## Reproduction
 
 `output/results.md` in this repository is the output of the command above on
-the arrays in `data/`. It reproduces every value of Tables 1-3, Fig. 1 and
-Sect. 3.4 of the paper: 43,706 entries and 43,612 distinct strings; 125,935
+the arrays in `data/`. It contains: 43,706 entries and 43,612 distinct strings; 125,935
 minimal segments; 3,489 prefixed entries; 11,496 roots; 330 affix forms with
 68,464 tokens (89.42%); the power-law slope -1.45 (R2 = 0.99); 6,318 suffix
 chains, 240 of them variable (26.1% of suffixed components); the five rows of
@@ -64,17 +76,17 @@ strings, 12,705 of 12,831 unanimous.
 
 ## What the pipeline computes
 
-* Table 1: entries, distinct word strings, homographs, duplicates, notes,
+* Profile of the base: entries, distinct word strings, homographs, duplicates, notes,
   hyphenated and parenthesized entries, segments per entry, prefixes, roots.
-* Table 2: classes of post-root segments (affix form of the appendix, noted
+* Affix inventory: classes of post-root segments (affix form of the appendix, noted
   allomorph, compound constituent, other), cumulative coverage of the most
   frequent affix forms, least-squares power-law fit of the rank-frequency
   series over the ranks with frequency >= 2.
-* Table 3: the stem-attestation test for the pairs la/n, la/sh, la/t, lash/tir
+* Consistency: the stem-attestation test for the pairs la/n, la/sh, la/t, lash/tir
   and chi/lik with the entry under test excluded from the evidence
   (leave-one-out), the attestation rates of the split and the fused readings,
   Pearson's chi-square test of independence (df = 1) and Fisher's exact test.
-* Sect. 3.4: the prefix index, headwords that occur inside other entries and
+* Internal evidence: the prefix index, headwords that occur inside other entries and
   their agreement with the majority internal pattern, latent strings, support,
   unanimity, majority and ties, coverage gain, with 95% Wilson score
   intervals for the two validation rates.
@@ -108,4 +120,5 @@ strings, 12,705 of 12,831 unanimous.
 ## License
 
 Code: MIT (see `LICENSE`). The dictionary itself remains the work of its
-compilers; the derived tables are published for verification of the paper.
+compilers; the derived tables and the benchmark are published for research
+and for verification of the chapter.

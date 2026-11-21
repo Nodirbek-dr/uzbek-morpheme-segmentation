@@ -1,0 +1,8 @@
+morfessor==2.0.6
+sklearn-crfsuite==0.5.0
+python-crfsuite==0.9.12
+sentencepiece==0.2.3
+tiktoken==0.14.0
+jax==0.12.1
+optax==0.2.9
+matplotlib==3.11.2
